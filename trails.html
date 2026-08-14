@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trails | Longtom Trails Conservancy</title>
+  <meta name="description" content="Browse maintained hiking trails on the Mpumalanga escarpment, filterable by difficulty, with downloadable maps.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Longtom Trails Conservancy</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
+        &#9776; Menu
+      </button>
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="trails.html" aria-current="page">Trails</a></li>
+          <li><a href="enquiry.html">Enquiry</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1 class="section-title">Explore Our Trails</h1>
+        <p class="section-intro">
+          Discover the trails of the Mpumalanga Escarpment with Longtom Trails Conservancy.
+          Our trail directory offers a variety of trails for hikers, trail runners, and
+          mountain bikers of all skill levels.
+        </p>
+
+        <div class="filter-bar" role="group" aria-label="Filter trails by difficulty">
+          <span>Filter by difficulty:</span>
+          <button class="filter-btn is-active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="easy">Easy</button>
+          <button class="filter-btn" data-filter="moderate">Moderate</button>
+          <button class="filter-btn" data-filter="hard">Hard</button>
+        </div>
+
+        <div class="card-grid">
+
+          <div class="card" data-difficulty="moderate">
+            <div class="card-image">
+              <img src="images/trail-thumbnails/long-tom-pass-loop.jpg" alt="Hikers on the Long Tom Pass Loop trail" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="card-body">
+              <h3>Long Tom Pass Loop</h3>
+              <p class="trail-meta"><span class="difficulty difficulty-moderate">Moderate</span> 8km · ~3 hrs</p>
+              <p>A scenic loop following part of the historic Long Tom Pass route, with several viewpoints over the escarpment.</p>
+              <a href="#" class="btn btn-outline-dark">Download PDF map</a>
+            </div>
+          </div>
+
+          <div class="card" data-difficulty="easy">
+            <div class="card-image">
+              <img src="images/trail-thumbnails/dullstroom-wetland.jpg" alt="Boardwalk through the Dullstroom Wetland Trail" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="card-body">
+              <h3>Dullstroom Wetland Trail</h3>
+              <p class="trail-meta"><span class="difficulty difficulty-easy">Easy</span> 4km · ~1.5 hrs</p>
+              <p>A flat, family-friendly boardwalk trail through wetlands popular with birdwatchers.</p>
+              <a href="#" class="btn btn-outline-dark">Download PDF map</a>
+            </div>
+          </div>
+
+          <div class="card" data-difficulty="hard">
+            <div class="card-image">
+              <img src="images/trail-thumbnails/mac-false-ridge.jpg" alt="View along the Mac Mac Falls Ridge trail" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="card-body">
+              <h3>Mac Mac Falls Ridge</h3>
+              <p class="trail-meta"><span class="difficulty difficulty-hard">Hard</span> 12km · ~5 hrs</p>
+              <p>A challenging trail offering breathtaking, full-day views of the escarpment. Recommended for experienced hikers only.</p>
+              <a href="#" class="btn btn-outline-dark">Download PDF map</a>
+            </div>
+          </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner">
+          <h2>Join us in protecting the trails</h2>
+          <p>Become a volunteer or sponsor a trail to help us preserve the natural beauty of the Mpumalanga Escarpment.</p>
+          <a href="enquiry.html" class="btn btn-primary">Become a Volunteer</a>
+          <a href="enquiry.html" class="btn btn-outline">Sponsor a Trail</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>
+        <h4>Longtom Trails Conservancy</h4>
+        <p>Lydenburg, Mpumalanga, South Africa</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="trails.html">Trails</a></li>
+          <li><a href="enquiry.html">Volunteer / Sponsor</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow us</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+      <p class="footer-bottom">&copy; 2026 Longtom Trails Conservancy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

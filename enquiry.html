@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry | Longtom Trails Conservacy</title>
+    <meta name="description" content="Register as a volunteer  or enquire about sponsoring a trail with Longtom Trails Conservacy. Fill out our enquiry form to get involved in the conservation of the Mpumalanga Escarpment.">
+    <link rel="style" href="css/style.css">
+    </head>
+    <body>
+
+        <hearder class="site-hearder">
+            <div class="container">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.png" alt="Longtom Trails Conservacy Logo">
+                <h1>Longtom Trails Conservacy</h1>
+                <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
+                    &#9776; Menu </button>
+                <nav class="main-nav" id="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="trails.html">Trails</a></li>
+                        <li><a href="enquiry.html">Enquiry</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </hearder>
+
+        <main>
+            <section class="section">
+            </div class="container">
+            <h1 class="section-title">Get involved</h1>
+            <p class="section-intro">
+                This page serves two audiances who want to volunteer thier time,
+                and businesses or individuals who would like to sponsor our work. Choose the form that applies to you.</p>
+
+                <div class="form-grid">
+
+                    <!------VOLUNTEER FORM----->
+                    <form data-validate novalidate>
+                        <fieldset>
+                            <legend>Volunteer registration</legend>
+
+                        <div class="form-field">
+                            <label for="vol-name">Full name <span aria-hidden="true">*</span></label>
+                            <input type="text" id="vol-name" name="vol-name" required>
+                            <p class="error-message" aria-live="polite">Please enter your full name.</p>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="vol-email">Email address <span aria-hidden="true">*</span></label>
+                            <input type="email" id="vol-email" name="vol-email" required>
+                            <p class="error-message" aria-live="polite">Please enter a valid email address.</p>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="vol-phone">Phone number</label>
+                            <input type="tel" id="vol-phone" name="vol-phone">
+                            </div>
+
+                            <div class="form field">
+                                <label for="vol-interest">Areas of interest</label>
+                                <select id="vol-interest" name="vol-interest">
+                                    <option value="">Select an area of interest</option>
+                                    <option value="trail-maintenance">Trail maintenance</option>
+                                    <option value="event-organization">Event organization</option>
+                                    <option value="fundraising">Fundraising</option>
+                                    <option value="education-outreach">Education and outreach</option>
+                                </select>
+                            </div>
+
+                            <div class="form-field"></div>
+                            <label for="vol-availability"</label>
+                                <select id="vol-availability" name="vol-availability"
+                                <option value="">Select your availability</option>
+                                <option value="weekdays">Weekdays</option>
+                                <optgroup label="Weekends">
+                                    <option value="saturday">Saturday</option>
+                                    <option value="sunday">Sunday</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    <div class="form-field">
+                        <label for="vol-interest">What would you like to help with?</label>
+                            <textarea id="vol-interest" name="vol-interest"></textarea>
+                    </div>
+
+                        <button type="submit" class="btn btn-primary">Register to volunteer</button>
+                        <fieldset>
+                    </form>
+
+                    <!------SPONSOR FORM----->
+                    <form data-validate novalidate> 
+                        <fieldset>
+                            <legend>Sponsor enquiry</legend>
+
+                            <div class="form-field">
+                                <label for="sponsor-name">Full name <span aria-hidden="true">*</span></label>
+                                <input type="text" id="sponsor-name" name="sponsor-name" required>
+                                <p class="error-message" aria-live="polite">Please enter your full name.</p>
+                            </div>
+            
+                            <div class="form-field">
+                                <label for="sponsor-email">Email address <span aria-hidden="true">*</span></label>
+                                <input type="email" id="sponsor-email" name="sponsor-email" required>
+                                <p class="error-message" aria-live="polite">Please enter a valid email address.</p>
+                            </div>
+                            
+                            <div class="form-field">
+                                <label for="sponsor-phone">Phone number</label>
+                                <input type="tel" id="sponsor-phone" name="sponsor-phone">
+                            </div>
+
+                            <div class="form-field">
+                                <label for="Spon-type">Sponsorship type</label>
+                                <option value="">Select a sponsorship type</option>
+                                <option value="trail-maintenance">Trail maintenance</option>
+                                <option value="event-organization">Event organization</option>
+                                <option value="fundraising">Fundraising</option>
+                                <option value="education-outreach">Education and outreach</option>
+                                <option value="other">Other</option>
+                            </Select>             
+                            </div>
+<
+                            <div class="form-field">
+                                <label for="Budget">Estimated budget range (ZAR)</label>
+                                <textarea id="Budget" name="Budget"></textarea>
+                                <p class="form-note">Please provide an estimated budget range for your sponsorship.</p>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit enquiry</button>
+                        </fieldset> 
+                    </form>
+
+                </div>
+            </div>
+        </div>
+            </section>
+        </main>
+        <footer class="site-footer">
+    <div class="container">
+      <div>
+        <h4>Longtom Trails Conservancy</h4>
+        <p>Lydenburg, Mpumalanga, South Africa</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="trails.html">Trails</a></li>
+          <li><a href="enquiry.html">Volunteer / Sponsor</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow us</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+      <p class="footer-bottom">&copy; 2026 Longtom Trails Conservancy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+    
