@@ -4,7 +4,12 @@
    ========================================================================== */
 
 :root {
-  /* Colour palette (from Proposal 1, Section 5) */
+  /* CSS custom properties (variables) defined once here and reused
+     throughout the stylesheet with var(--name). This means the whole
+     site's colour scheme or spacing can be changed by editing one
+     value here, instead of hunting through every rule.
+     Colour palette matches Proposal 1, Section 5 (moss green, charcoal,
+     warm sand) so the built site stays consistent with what was approved. */
   --moss-green: #4B6043;
   --moss-green-dark: #3A4A34;
   --charcoal: #2E2E2E;
@@ -147,6 +152,30 @@ select:focus-visible {
 }
 
 /* Mobile navigation */
+/* ==========================================================================
+   Tablet breakpoint
+   Adjusts spacing and font sizes for medium screens (tablets),
+   before the site switches to the mobile layout below.
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 var(--space-2);
+  }
+
+  .hero {
+    padding: var(--space-4) 0;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+/* Mobile navigation breakpoint.
+   Below 720px wide (phones), the horizontal nav links are hidden and
+   replaced with the "☰ Menu" toggle button defined in .nav-toggle above.
+   JavaScript in script.js listens for a click on that button and adds
+   the .is-open class below to reveal the menu. */
 @media (max-width: 720px) {
   .nav-toggle {
     display: inline-block;
@@ -182,8 +211,13 @@ select:focus-visible {
 }
 
 /* ==========================================================================
-   Trail-path divider 
-   ========================================================================== */
+   Trail-path divider — signature element.
+
+   Uses a repeating-linear-gradient to draw evenly spaced dashes (like a
+   dashed trail line on a map), with a circle (::after) placed at one end
+   to look like a trail marker. Used instead of a plain <hr> between
+   major page sections to reinforce the hiking/trail visual theme.
+
 
 .trail-divider {
   border: none;
@@ -266,6 +300,11 @@ select:focus-visible {
   background-color: #C9B78C;
 }
 
+.btn-primary:active {
+  background-color: #B8A87A;
+  transform: translateY(1px);
+}
+
 .btn-outline {
   background-color: transparent;
   color: var(--white);
@@ -320,6 +359,13 @@ select:focus-visible {
   border: 1px solid var(--border-soft);
   border-radius: 6px;
   overflow: hidden;
+  box-shadow: 0 2px 6px rgba(46, 46, 46, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(46, 46, 46, 0.12);
 }
 
 .card-image {
@@ -374,7 +420,12 @@ select:focus-visible {
 }
 
 /* ==========================================================================
-   Filter controls (Trails page)
+   Filter controls (Trails page).
+   These buttons don't filter anything by themselves — script.js reads
+   each button's data-filter attribute on click, then shows or hides the
+   trail cards below based on their matching data-difficulty attribute.
+   The .is-active class here only changes the button's own appearance
+   to show which filter is currently selected.
    ========================================================================== */
 
 .filter-bar {
@@ -408,9 +459,12 @@ select:focus-visible {
 }
 
 /* ==========================================================================
-   Forms (Enquiry and Contact pages)
+   Forms (Enquiry and Contact pages).
+   Styles the two forms on enquiry.html and the one on contact.html.
+   The .field-invalid and .form-error rules below only take effect when
+   script.js adds the .field-invalid class to a field that failed
+   validation (e.g. was left empty) — see the JS validation comments.
    ========================================================================== */
-
 .form-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
