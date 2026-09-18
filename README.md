@@ -138,3 +138,28 @@ Xneelo. (2026) *Domain and hosting pricing*. Available at: https://www.xneelo.co
 
 Mpumalanga Tourism and Parks Agency. (2023) *Eco-tourism guidelines for protected trail
 networks*. Nelspruit: MTPA Publications.
+
+PART 2 References: 
+1.MDN Web Docs. (2024) Using media queries. Available at:  
+    https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries  
+    (Accessed: [10 September 2026]). 
+
+2.MDN Web Docs. (2024) CSS box-shadow. Available at:  
+    https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow  
+    (Accessed: [12 September 2026]).  
+
+3.CSS-Tricks. (2023) A complete guide to CSS media queries. Available at:  
+    https://css-tricks.com/a-complete-guide-to-css-media-queries/  
+    (Accessed: [12 September 2026]). 
+
+4.MDN Web Docs. (2024) Client-side form validation. Available at:  
+    https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation  
+    (Accessed: [14 September 2026]). 
+
+5.Google Web Fundamentals. (2023) Responsive web design basics. Available at:  
+    https://web.dev/responsive-web-design-basics/  
+    (Accessed: [14 September 2026]). 
+
+6.GitHub Docs. (2024) About commits. Available at:  
+    https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits  
+    (accessed: [15 September 2026]).
