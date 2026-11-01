@@ -1,11 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trails | Longtom Trails Conservancy</title>
-  <meta name="description" content="Browse maintained hiking trails on the Mpumalanga escarpment, filterable by difficulty, with downloadable maps.">
+  <title>Hiking Trails in Mpumalanga | Longtom Trails Conservancy</title>
+  <meta name="description" content="Explore hiking trails near Lydenburg and Dullstroom, from an easy wetland boardwalk to a full-day ridge hike. Search and sort by difficulty and distance.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#4B6043">
+  <link rel="canonical" href="https://longtomtrails.netlify.app/trails.html">
+
+  <!-- Icons shown in browser tabs -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-192.png" type="image/png" sizes="192x192">
+
+  <!-- Open Graph and Twitter tags: the title, description and picture shown when the page is shared -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Longtom Trails Conservancy">
+  <meta property="og:locale" content="en_ZA">
+  <meta property="og:title" content="Hiking Trails in Mpumalanga | Longtom Trails Conservancy">
+  <meta property="og:description" content="Explore hiking trails near Lydenburg and Dullstroom, from an easy wetland boardwalk to a full-day ridge hike. Search and sort by difficulty and distance.">
+  <meta property="og:url" content="https://longtomtrails.netlify.app/trails.html">
+  <meta property="og:image" content="https://longtomtrails.netlify.app/images/og-image.png">
+  <meta property="og:image:alt" content="Longtom Trails Conservancy: protecting the hiking trails of the Mpumalanga escarpment">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Structured data (JSON-LD): tells search engines exactly what this page is about -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Hiking trails near Lydenburg and Dullstroom",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "TouristAttraction",
+          "name": "Dullstroom Wetland Trail",
+          "description": "A flat, family-friendly boardwalk trail through wetlands popular with birdwatchers. 4 km, about 1.5 hours, easy.",
+          "image": "https://longtomtrails.netlify.app/images/trail-thumbnails/dullstroom-wetland.jpg",
+          "url": "https://longtomtrails.netlify.app/trails.html"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "TouristAttraction",
+          "name": "Long Tom Pass Loop",
+          "description": "A scenic loop following part of the historic Long Tom Pass route, with several viewpoints over the escarpment. 8 km, about 3 hours, moderate.",
+          "image": "https://longtomtrails.netlify.app/images/trail-thumbnails/long-tom-pass-loop.jpg",
+          "url": "https://longtomtrails.netlify.app/trails.html"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "TouristAttraction",
+          "name": "Mac Mac Falls Ridge",
+          "description": "A challenging trail offering breathtaking, full-day views of the escarpment. 12 km, about 5 hours, hard. For experienced hikers only.",
+          "image": "https://longtomtrails.netlify.app/images/trail-thumbnails/mac-mac-falls-ridge.jpg",
+          "url": "https://longtomtrails.netlify.app/trails.html"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -36,65 +99,52 @@
         <p class="section-intro">
           Discover the trails of the Mpumalanga Escarpment with Longtom Trails Conservancy.
           Our trail directory offers a variety of trails for hikers, trail runners, and
-          mountain bikers of all skill levels.
+          mountain bikers of all skill levels. Search by name or keyword, filter by
+          difficulty, or sort by distance and time.
         </p>
+
+        <!-- Search box and sort menu. trails.js listens to both. -->
+        <div class="trail-tools">
+          <div class="form-field trail-search">
+            <label for="trail-search">Search trails</label>
+            <input type="search" id="trail-search" placeholder="e.g. wetland, birdwatching, views" autocomplete="off">
+          </div>
+          <div class="form-field trail-sort">
+            <label for="trail-sort">Sort by</label>
+            <select id="trail-sort">
+              <option value="difficulty">Difficulty (easiest first)</option>
+              <option value="name">Name (A to Z)</option>
+              <option value="distance-asc">Distance (shortest first)</option>
+              <option value="distance-desc">Distance (longest first)</option>
+              <option value="time">Time (quickest first)</option>
+            </select>
+          </div>
+        </div>
 
         <div class="filter-bar" role="group" aria-label="Filter trails by difficulty">
           <span>Filter by difficulty:</span>
-          <button class="filter-btn is-active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="easy">Easy</button>
-          <button class="filter-btn" data-filter="moderate">Moderate</button>
-          <button class="filter-btn" data-filter="hard">Hard</button>
+          <button type="button" class="filter-btn is-active" data-filter="all">All</button>
+          <button type="button" class="filter-btn" data-filter="easy">Easy</button>
+          <button type="button" class="filter-btn" data-filter="moderate">Moderate</button>
+          <button type="button" class="filter-btn" data-filter="hard">Hard</button>
         </div>
 
-        <div class="card-grid">
+        <!-- "Showing 2 of 3 trails". aria-live makes screen readers announce changes. -->
+        <p class="results-count" id="trail-count" aria-live="polite"></p>
 
-          <div class="card" data-difficulty="easy">
-            <div class="card-image">
-              <img src="images/trail-thumbnails/dullstroom-wetland.jpg" alt="Boardwalk through the Dullstroom Wetland Trail" style="width:100%; height:100%; object-fit:cover;">
-            </div>
-            <div class="card-body">
-              <h3>Dullstroom Wetland Trail</h3>
-              <p class="trail-meta">
-                <span class="difficulty difficulty-easy">Easy</span>
-                4km · ~1.5 hrs
-              </p>
-              <p>A flat, family-friendly boardwalk trail through wetlands popular with birdwatchers.</p>
-              <a href="#" class="btn btn-outline-dark">Download PDF map</a>
-            </div>
-          </div>
+        <!-- trails.js builds the trail cards and puts them in this empty grid. -->
+        <div class="card-grid" id="trail-grid"></div>
 
-          <div class="card" data-difficulty="moderate">
-            <div class="card-image">
-              <img src="images/trail-thumbnails/long-tom-pass-loop.jpg" alt="Hikers on the Long Tom Pass Loop trail" style="width:100%; height:100%; object-fit:cover;">
-            </div>
-            <div class="card-body">
-              <h3>Long Tom Pass Loop</h3>
-              <p class="trail-meta">
-                <span class="difficulty difficulty-moderate">Moderate</span>
-                8km · ~3 hrs
-              </p>
-              <p>A scenic loop following part of the historic Long Tom Pass route, with several viewpoints over the escarpment.</p>
-              <a href="#" class="btn btn-outline-dark">Download PDF map</a>
-            </div>
-          </div>
-
-          <div class="card" data-difficulty="hard">
-            <div class="card-image">
-              <img src="images/trail-thumbnails/mac-false-ridge.jpg" alt="View along the Mac Mac Falls Ridge trail" style="width:100%; height:100%; object-fit:cover;">
-            </div>
-            <div class="card-body">
-              <h3>Mac Mac Falls Ridge</h3>
-              <p class="trail-meta">
-                <span class="difficulty difficulty-hard">Hard</span>
-                12km · ~5 hrs
-              </p>
-              <p>A challenging trail offering breathtaking, full-day views of the escarpment. Recommended for experienced hikers only.</p>
-              <a href="#" class="btn btn-outline-dark">Download PDF map</a>
-            </div>
-          </div>
-
+        <!-- Shown by trails.js when nothing matches the search or filter. -->
+        <div class="empty-state" id="trail-empty" hidden>
+          <h3>No trails match your search</h3>
+          <p>Try a different word, or clear your search and filters to see every trail.</p>
+          <button type="button" class="btn btn-primary" id="trail-reset">Clear search and filters</button>
         </div>
+
+        <noscript>
+          <p>Our trail list needs JavaScript. Our trails are the Dullstroom Wetland Trail (easy, 4km), the Long Tom Pass Loop (moderate, 8km) and Mac Mac Falls Ridge (hard, 12km).</p>
+        </noscript>
       </div>
     </section>
 
@@ -138,5 +188,6 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <script src="js/trails.js"></script>
 </body>
 </html>
