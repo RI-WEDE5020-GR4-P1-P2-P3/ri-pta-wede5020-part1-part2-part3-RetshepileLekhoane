@@ -622,3 +622,630 @@ textarea {
   margin-top: var(--space-4);
   width: 100%;
 }
+
+/* ==========================================================================
+   Form additions (Part 3): date inputs, hints, character counters and the
+   response box that appears after a form is submitted.
+   ========================================================================== */
+
+/* Space between fields inside a form. */
+.form-field {
+  margin-bottom: var(--space-2);
+}
+
+/* Date inputs look the same as the other fields. */
+input[type="date"] {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background-color: var(--off-white);
+}
+
+/* Small helper text under a field, and the live character counter. */
+.form-hint {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0.3rem 0 0;
+}
+
+.char-counter {
+  font-size: 0.8rem;
+  color: #666;
+  text-align: right;
+  margin: 0.2rem 0 0;
+}
+
+/* The message box shown after a form is submitted. Green for success;
+   .is-error switches it to red. */
+.form-response {
+  margin-top: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-left: 4px solid var(--moss-green);
+  border-radius: 4px;
+  background-color: #E9EFE4;
+}
+
+.form-response h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.form-response ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.form-response li {
+  margin-bottom: 0.4rem;
+}
+
+.form-response.is-error {
+  border-left-color: #8A2E24;
+  background-color: #F6E4E1;
+}
+
+/* A disabled button (while a form is sending) looks faded. */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Contact form additions (Part 3): form width and the email preview box.
+   ========================================================================== */
+
+.contact-form {
+  max-width: 40rem;
+}
+
+/* The compiled email, shown in a monospace box so it reads like a plain-text email. */
+.email-preview {
+  background-color: var(--white);
+  border: 1px solid var(--border-soft);
+  border-radius: 4px;
+  padding: var(--space-2);
+  margin: var(--space-2) 0;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* The row of buttons under the email preview. */
+.response-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+/* ==========================================================================
+   Trails page additions (Part 3): search box, sort menu, results count,
+   no-results message, trail tags and the card fade-in animation.
+   ========================================================================== */
+
+/* Search box and sort menu sit side by side, and stack on small screens. */
+.trail-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.trail-search {
+  flex: 2 1 260px;
+}
+
+.trail-sort {
+  flex: 1 1 200px;
+}
+
+input[type="search"] {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background-color: var(--off-white);
+}
+
+.results-count {
+  margin: 0 0 var(--space-2);
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Trail photos fill their box without being stretched. */
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Small keyword labels at the bottom of each trail card. */
+.trail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: var(--space-2);
+}
+
+.trail-tag {
+  padding: 0.1rem 0.6rem;
+  border-radius: 20px;
+  background-color: var(--off-white);
+  border: 1px solid var(--border-soft);
+  font-size: 0.8rem;
+  color: #555;
+}
+
+/* Shown when a search or filter matches no trails. */
+.empty-state {
+  padding: var(--space-4) var(--space-3);
+  text-align: center;
+  background-color: var(--white);
+  border: 1px dashed var(--border-soft);
+  border-radius: 6px;
+}
+
+/* Cards fade in and slide up slightly. "backwards" means the animation only
+   controls the card before and during the animation. A "both" setting would
+   keep controlling it afterwards and stop the hover lift from working. */
+.card-enter {
+  animation: cardFadeIn 0.4s ease backwards;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   Interactive elements and animations (Part 3): scroll reveal, button
+   transitions, bio modal, photo gallery with lightbox and FAQ accordion.
+   ========================================================================== */
+
+/* ---- Scroll reveal (the .reveal class is added by script.js) ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---- Smooth transitions on buttons and navigation links ---- */
+.btn,
+.filter-btn {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+/* Buttons lift slightly on hover. The :not(:active) part keeps the "pressed"
+   effect from Part 2 working while the button is being clicked. */
+.btn:hover:not(:active):not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.main-nav a {
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+/* ---- Dialogs (the bio modal and the lightbox) ---- */
+.no-scroll {
+  overflow: hidden;
+}
+
+dialog {
+  width: 100%;
+  max-width: min(92vw, 560px);
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  color: var(--charcoal);
+  background-color: var(--white);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+dialog::backdrop {
+  background-color: rgba(46, 46, 46, 0.75);
+}
+
+dialog[open] {
+  animation: dialogIn 0.25s ease;
+}
+
+@keyframes dialogIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.dialog-content {
+  position: relative;
+  padding: var(--space-3);
+}
+
+.dialog-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 1;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.92);
+  color: var(--charcoal);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dialog-close:hover {
+  background-color: var(--warm-sand);
+}
+
+/* ---- Bio modal ---- */
+.modal-photo {
+  width: 100%;
+  height: 240px;
+  margin-bottom: var(--space-2);
+  border-radius: 6px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.modal-photo[hidden] {
+  display: none;
+}
+
+.modal-name {
+  margin-bottom: 0.25rem;
+}
+
+.modal-role {
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+  color: #666;
+}
+
+/* ---- Photo gallery ---- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-3);
+}
+
+.gallery-item {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  background-color: var(--white);
+  box-shadow: 0 2px 6px rgba(46, 46, 46, 0.08);
+  color: var(--charcoal);
+  text-decoration: none;
+  transition: box-shadow 0.2s ease;
+}
+
+.gallery-item:hover {
+  box-shadow: 0 6px 14px rgba(46, 46, 46, 0.12);
+}
+
+/* The wrapper hides the part of the photo that grows outside it on hover. */
+.gallery-image {
+  display: block;
+  overflow: hidden;
+}
+
+.gallery-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img,
+.gallery-item:focus-visible img {
+  transform: scale(1.06);
+}
+
+.gallery-caption {
+  display: block;
+  padding: 0.75rem var(--space-2);
+  font-size: 0.9rem;
+}
+
+/* ---- Lightbox ---- */
+.lightbox {
+  max-width: min(94vw, 900px);
+}
+
+.lightbox-image {
+  width: 100%;
+  max-height: 70vh;
+  border-radius: 6px;
+  background-color: #1d1d1d;
+  object-fit: contain;
+}
+
+.lightbox-caption {
+  margin: 0.75rem 0;
+  text-align: center;
+}
+
+.lightbox-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.lightbox-count {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ---- FAQ accordion ---- */
+.accordion {
+  max-width: 48rem;
+}
+
+.accordion-item {
+  margin: 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.accordion-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-2) 0;
+  border: none;
+  background: none;
+  color: var(--moss-green-dark);
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.accordion-trigger:hover {
+  color: var(--moss-green);
+}
+
+/* The + at the end of each question turns into an x when its answer is open. */
+.accordion-trigger::after {
+  content: "+";
+  flex-shrink: 0;
+  font-size: 1.6rem;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.accordion-trigger[aria-expanded="true"]::after {
+  transform: rotate(45deg);
+}
+
+.accordion-panel {
+  padding-bottom: var(--space-2);
+}
+
+/* Answers are only hidden once JavaScript has set the accordion up. */
+.js-accordion .accordion-panel {
+  display: none;
+}
+
+/* ==========================================================================
+   Team photo fixes (Part 3): show whole faces, never crop them.
+   Placed last in the file so it overrides the older rules above it.
+   ========================================================================== */
+
+/* Team photos are portraits, so their box on the team cards is taller
+   than the trail photos' box. */
+.team-card .card-image {
+  aspect-ratio: 3 / 4;
+}
+
+/* In the bio window the whole photo is shown with no cropping at all. */
+.modal-photo {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 360px;
+  margin: 0 auto var(--space-2);
+  border-radius: 6px;
+  object-fit: contain;
+}
+
+/* ==========================================================================
+   Contact page map (Part 3): the Leaflet map, numbered pins, the list of
+   locations and the buttons above the map.
+   ========================================================================== */
+
+/* Map on the left, list of locations on the right. They stack on small screens. */
+.find-us {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: var(--space-3);
+  align-items: start;
+  margin-bottom: var(--space-4);
+}
+
+#map {
+  height: 460px;
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  background-color: #E9EFE4;
+  /* z-index: 0 keeps the map's inner layers (which use very high z-index
+     numbers) underneath the sticky header when the page scrolls. */
+  position: relative;
+  z-index: 0;
+}
+
+@media (max-width: 860px) {
+  .find-us {
+    grid-template-columns: 1fr;
+  }
+
+  #map {
+    height: 360px;
+  }
+}
+
+/* The two buttons above the map. The [hidden] rule is needed because display:flex
+   would otherwise override the hidden attribute. */
+.map-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+
+.map-toolbar[hidden] {
+  display: none;
+}
+
+#nearest-result {
+  margin: 0 0 var(--space-2);
+}
+
+.map-fallback {
+  padding: var(--space-2);
+  border: 1px dashed var(--border-soft);
+  border-radius: 6px;
+  background-color: var(--white);
+}
+
+/* The numbered green pins on the map. */
+.map-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  background-color: var(--moss-green);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.map-pin:focus-visible {
+  outline: 3px solid var(--warm-sand);
+  outline-offset: 2px;
+}
+
+/* The popup that opens when a pin is clicked. */
+.leaflet-popup-content {
+  font-family: var(--font-body);
+}
+
+.leaflet-popup-content p {
+  margin: 0.4rem 0;
+}
+
+.leaflet-container .leaflet-popup-content a {
+  color: var(--moss-green-dark);
+  font-weight: 600;
+}
+
+/* The list of locations beside the map. */
+.location-list {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.location-card {
+  padding: var(--space-2);
+  border: 1px solid var(--border-soft);
+  border-left: 4px solid var(--border-soft);
+  border-radius: 6px;
+  background-color: var(--white);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* The location currently shown on the map. */
+.location-card.is-active {
+  border-left-color: var(--moss-green);
+  box-shadow: 0 4px 12px rgba(46, 46, 46, 0.12);
+}
+
+.location-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+
+.location-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  background-color: var(--moss-green);
+  color: var(--white);
+  font-size: 0.9rem;
+}
+
+.location-card address {
+  margin-bottom: 0.5rem;
+  font-style: normal;
+}
+
+.location-card p {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+}
+
+.location-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-top: var(--space-1);
+}
+
+.btn-small {
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+}
+
+/* "Show on map" does nothing without the map, so it is hidden until the map works. */
+.show-on-map {
+  display: none;
+}
+
+.map-ready .show-on-map {
+  display: inline-block;
+}
