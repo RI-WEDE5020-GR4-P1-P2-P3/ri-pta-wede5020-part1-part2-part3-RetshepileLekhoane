@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /docs/
-
-Sitemap: https://longtomtrails.netlify.app/sitemap.xml
