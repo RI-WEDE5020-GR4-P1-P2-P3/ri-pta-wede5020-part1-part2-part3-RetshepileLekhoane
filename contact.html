@@ -1,11 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Longtom Trails Conservancy</title>
-  <meta name="description" content="Contact Longtom Trails Conservancy. Find our Lydenburg trailhead office and Dullstroom satellite point.">
+  <title>Contact Us | Longtom Trails Conservancy, Lydenburg</title>
+  <meta name="description" content="Find our Lydenburg and Dullstroom meeting points on the map, get directions, or message Longtom Trails Conservancy about trails and volunteering.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#4B6043">
+  <link rel="canonical" href="https://longtomtrails.netlify.app/contact.html">
+
+  <!-- Icons shown in browser tabs -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-192.png" type="image/png" sizes="192x192">
+
+  <!-- Open Graph and Twitter tags: the title, description and picture shown when the page is shared -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Longtom Trails Conservancy">
+  <meta property="og:locale" content="en_ZA">
+  <meta property="og:title" content="Contact Us | Longtom Trails Conservancy, Lydenburg">
+  <meta property="og:description" content="Find our Lydenburg and Dullstroom meeting points on the map, get directions, or message Longtom Trails Conservancy about trails and volunteering.">
+  <meta property="og:url" content="https://longtomtrails.netlify.app/contact.html">
+  <meta property="og:image" content="https://longtomtrails.netlify.app/images/og-image.png">
+  <meta property="og:image:alt" content="Longtom Trails Conservancy: protecting the hiking trails of the Mpumalanga escarpment">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Leaflet (the map library). preconnect starts the connection early so the map loads faster. -->
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin="">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Structured data (JSON-LD): tells search engines exactly what this page is about -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Longtom Trails Conservancy",
+    "url": "https://longtomtrails.netlify.app/contact.html",
+    "mainEntity": {
+      "@type": "NGO",
+      "name": "Longtom Trails Conservancy",
+      "email": "info@longtomtrails.org.za",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "info@longtomtrails.org.za",
+        "areaServed": "ZA",
+        "availableLanguage": "English"
+      }
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -34,57 +80,136 @@
       <div class="container">
         <h1 class="section-title">Contact us</h1>
         <p class="section-intro">
-          We have two meeting points along the escarpment. Drop by during office hours,
-          or send us a message below.
+          We have two meeting points along the escarpment. Use the map to find the one
+          nearest to you, or send us a message below.
         </p>
 
-        <div class="map-grid">
-          <div class="map-card">
-            <h3>Lydenburg Trailhead Office</h3>
-            <iframe
-              src="https://www.google.com/maps?q=Lydenburg,+Mpumalanga,+South+Africa&output=embed"
-              loading="lazy"
-              title="Map showing the Lydenburg Trailhead Office location"
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-            <p>12 Voortrekker Street, Lydenburg (Mashishing), Mpumalanga</p>
+        <!-- ==================== MAP AND LOCATIONS ====================
+             Each location card holds its own coordinates (data-lat and data-lng).
+             script.js reads them to put a marker on the map for each card.
+             The coordinates are for the middle of each town, so replace them with
+             the exact position of your office to place the marker precisely. -->
+        <h2>Find us</h2>
+
+        <!-- The buttons start hidden and are shown by script.js once the map works. -->
+        <div class="map-toolbar" id="map-toolbar" hidden>
+          <button type="button" class="btn btn-primary" id="find-nearest">Find my nearest meeting point</button>
+          <button type="button" class="btn btn-outline-dark" id="show-all">Show both locations</button>
+        </div>
+
+        <div class="form-response" id="nearest-result" role="status" aria-live="polite" hidden></div>
+
+        <div class="find-us">
+          <div class="find-us-map">
+            <div id="map" role="region" aria-label="Interactive map showing our two meeting points"></div>
+
+            <!-- Shown by script.js only if the map could not load. -->
+            <p class="map-fallback" id="map-fallback" hidden>
+              The interactive map could not load. Check your internet connection and refresh the
+              page, or use the Get directions links in the list.
+            </p>
+
+            <noscript>
+              <p class="map-fallback">The interactive map needs JavaScript. Use the Get directions links in the list instead.</p>
+            </noscript>
           </div>
 
-          <div class="map-card">
-            <h3>Dullstroom Satellite Point</h3>
-            <iframe
-              src="https://www.google.com/maps?q=Dullstroom,+Mpumalanga,+South+Africa&output=embed"
-              loading="lazy"
-              title="Map showing the Dullstroom satellite meeting point"
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-            <p>Huguenot Street, Dullstroom, Mpumalanga</p>
-          </div>
+          <ol class="location-list">
+
+            <li class="location-card" data-name="Lydenburg Trailhead Office" data-lat="-25.10" data-lng="30.45">
+              <h3><span class="location-number" aria-hidden="true">1</span> Lydenburg Trailhead Office</h3>
+              <address>12 Voortrekker Street, Lydenburg (Mashishing), Mpumalanga</address>
+              <p><strong>Open:</strong> Monday to Friday, 08:00 to 16:00</p>
+              <p>Starting point for our monthly clean-up hikes (first Saturday, 07:30).</p>
+              <div class="location-actions">
+                <button type="button" class="btn btn-outline-dark btn-small show-on-map">Show on map</button>
+                <a class="btn btn-outline-dark btn-small directions-link"
+                   href="https://www.google.com/maps/dir/?api=1&amp;destination=-25.10,30.45"
+                   target="_blank" rel="noopener noreferrer">Get directions</a>
+              </div>
+            </li>
+
+            <li class="location-card" data-name="Dullstroom Satellite Point" data-lat="-25.4167" data-lng="30.10">
+              <h3><span class="location-number" aria-hidden="true">2</span> Dullstroom Satellite Point</h3>
+              <address>Huguenot Street, Dullstroom, Mpumalanga</address>
+              <p><strong>Open:</strong> Saturdays, 09:00 to 13:00</p>
+              <p>Trail information and the meeting point for Dullstroom Wetland Trail volunteers.</p>
+              <div class="location-actions">
+                <button type="button" class="btn btn-outline-dark btn-small show-on-map">Show on map</button>
+                <a class="btn btn-outline-dark btn-small directions-link"
+                   href="https://www.google.com/maps/dir/?api=1&amp;destination=-25.4167,30.10"
+                   target="_blank" rel="noopener noreferrer">Get directions</a>
+              </div>
+            </li>
+
+          </ol>
         </div>
 
         <hr class="trail-divider" aria-hidden="true">
 
         <h2>Send us a message</h2>
-        <form data-validate novalidate style="max-width: 40rem;">
+        <p class="section-intro">
+          Fill in the form and we will turn it into an email addressed to
+          info@longtomtrails.org.za for you to send. Fields marked * are required.
+        </p>
+
+        <!-- action: the recipient's address, stated in the code. script.js
+             validates the form, then builds the email and shows a preview
+             with a button that opens it in the visitor's email app.
+             novalidate: the browser's own pop-up messages are switched off
+             because script.js shows its own error messages. -->
+        <form class="contact-form" action="mailto:info@longtomtrails.org.za" method="post" novalidate
+              data-form="contact" data-response="contact-response">
+
           <div class="form-field">
-            <label for="contact-name">Full name <span aria-hidden="true">*</span></label>
-            <input type="text" id="contact-name" name="contact-name" required>
-            <p class="form-error">Please enter your name.</p>
+            <label for="contact-name">Full name *</label>
+            <input type="text" id="contact-name" name="name" required minlength="2" maxlength="60"
+                   autocomplete="name" data-label="Full name" aria-describedby="contact-name-error">
+            <p class="form-error" id="contact-name-error"></p>
           </div>
 
           <div class="form-field">
-            <label for="contact-email">Email address <span aria-hidden="true">*</span></label>
-            <input type="email" id="contact-email" name="contact-email" required>
-            <p class="form-error">Please enter a valid email address.</p>
+            <label for="contact-email">Email address *</label>
+            <input type="email" id="contact-email" name="email" required
+                   autocomplete="email" data-label="Email address" aria-describedby="contact-email-error">
+            <p class="form-error" id="contact-email-error"></p>
           </div>
 
           <div class="form-field">
-            <label for="contact-message">Message <span aria-hidden="true">*</span></label>
-            <textarea id="contact-message" name="contact-message" required></textarea>
-            <p class="form-error">Please enter a message.</p>
+            <label for="contact-phone">Phone number (optional)</label>
+            <input type="tel" id="contact-phone" name="phone"
+                   pattern="(\+27|0)[0-9]{9}" placeholder="0821234567" autocomplete="tel"
+                   data-label="Phone number"
+                   data-pattern-message="Please enter a South African number, for example 0821234567 or +27821234567."
+                   aria-describedby="contact-phone-error">
+            <p class="form-error" id="contact-phone-error"></p>
           </div>
 
-          <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Send message</button>
+          <div class="form-field">
+            <label for="contact-type">Type of message *</label>
+            <select id="contact-type" name="messageType" required
+                    data-label="Type of message" aria-describedby="contact-type-error">
+              <option value="">Choose a message type</option>
+              <option value="general">General question</option>
+              <option value="trail-info">Trail information</option>
+              <option value="trail-problem">Report a trail problem</option>
+              <option value="media">Media or press</option>
+              <option value="feedback">Feedback about the website</option>
+            </select>
+            <p class="form-error" id="contact-type-error"></p>
+          </div>
+
+          <div class="form-field">
+            <label for="contact-message">Your message *</label>
+            <textarea id="contact-message" name="message" required minlength="20" maxlength="500"
+                      data-label="Your message" aria-describedby="contact-message-error"></textarea>
+            <p class="char-counter"></p>
+            <p class="form-error" id="contact-message-error"></p>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Create my email</button>
+
+          <div class="form-response" id="contact-response" role="status" aria-live="polite" hidden></div>
         </form>
       </div>
     </section>
@@ -116,6 +241,11 @@
     </div>
   </footer>
 
+  <!-- Leaflet is the mapping library. It must load before script.js, which uses it.
+       The integrity attribute is a security check on the downloaded file. -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+          crossorigin=""></script>
   <script src="js/script.js"></script>
 </body>
 </html>
