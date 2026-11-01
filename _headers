@@ -1,0 +1,9 @@
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(self)
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://unpkg.com https://code.jquery.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://tile.openstreetmap.org https://unpkg.com; connect-src 'self' https://formspree.io; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io mailto:; frame-ancestors 'none'; upgrade-insecure-requests
+
+/images/*
+  Cache-Control: public, max-age=2592000
