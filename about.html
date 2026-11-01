@@ -1,11 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | Longtom Trails Conservancy</title>
-  <meta name="description" content="Learn about Longtom Trails Conservancy's history, mission, and the volunteers who maintain the Mpumalanga escarpment's hiking trails.">
+  <title>About Us | Longtom Trails Conservancy, Lydenburg</title>
+  <meta name="description" content="Meet the volunteers of Longtom Trails Conservancy and learn how we protect hiking trails on the Mpumalanga escarpment near Lydenburg.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#4B6043">
+  <link rel="canonical" href="https://longtomtrails.netlify.app/about.html">
+
+  <!-- Icons shown in browser tabs -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-192.png" type="image/png" sizes="192x192">
+
+  <!-- Open Graph and Twitter tags: the title, description and picture shown when the page is shared -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Longtom Trails Conservancy">
+  <meta property="og:locale" content="en_ZA">
+  <meta property="og:title" content="About Us | Longtom Trails Conservancy, Lydenburg">
+  <meta property="og:description" content="Meet the volunteers of Longtom Trails Conservancy and learn how we protect hiking trails on the Mpumalanga escarpment near Lydenburg.">
+  <meta property="og:url" content="https://longtomtrails.netlify.app/about.html">
+  <meta property="og:image" content="https://longtomtrails.netlify.app/images/og-image.png">
+  <meta property="og:image:alt" content="Longtom Trails Conservancy: protecting the hiking trails of the Mpumalanga escarpment">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Starts the connection to the jQuery server early so the FAQ loads faster. -->
+  <link rel="preconnect" href="https://code.jquery.com" crossorigin>
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Structured data (JSON-LD): tells search engines exactly what this page is about -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I join a clean-up hike?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Register on our volunteer form. Clean-up hikes take place on the first Saturday of every month at 07:30, starting from the Lydenburg Trailhead Office."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it cost anything to volunteer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, volunteering is free. Please bring water, sun protection and sturdy shoes. We provide gloves, bags and tools."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does it cost to sponsor a trail?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our sponsorship packages start at R1,500 for a Trail Marker Sponsor and go up to R15,000 for a Trail Champion. See the sponsorship form for what each package covers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which trails are suitable for beginners and children?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Dullstroom Wetland Trail is a flat, family-friendly boardwalk and is our easiest route. Use the difficulty filter on our trails page to find a route that suits your group. The Mac Mac Falls Ridge is for experienced hikers only."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I report a damaged or blocked trail?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Send us a message on the contact page and choose \"Report a trail problem\". Tell us which trail it is and roughly where the problem is."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -51,7 +122,7 @@
 
         <hr class="trail-divider" aria-hidden="true">
 
-        <h3>Our mission</h3>
+        <h2>Our mission</h2>
         <p>
           Our mission is to protect the trails of the Mpumalanga Escarpment for future generations.
           We believe that everyone should have access to safe and well-maintained trails, and we
@@ -60,76 +131,196 @@
       </div>
     </section>
 
-    <!-- ==================== TEAM ==================== -->
+    <!-- ==================== TEAM ====================
+         Each "Read bio" button holds that person's bio in its data-bio attribute.
+         interactive.js opens the bio modal (the <dialog> at the bottom of the
+         page) and fills it with this card's name, role, photo and bio.
+         The "team-card" class gives the photos a taller box (see styles.css), and
+         object-position on each photo controls which part of it is shown. -->
     <section class="section">
       <div class="container">
         <h2 class="section-title">Meet our team</h2>
         <p class="section-intro">
           Our team is made up of passionate individuals dedicated to the conservation of the
           Mpumalanga Escarpment. From our board members to our volunteers, everyone plays a
-          crucial role in our mission.
+          crucial role in our mission. Click a team member to read their bio.
         </p>
 
         <div class="card-grid">
 
-          <div class="card">
+          <div class="card team-card">
             <div class="card-image">
-            <img src="images/team-photos/thandeka-mahlangu.jpg" alt="Thandeka Mahlangu, Founder and Director" style="width:100%; height:100%; object-fit:cover;">
+              <img src="images/team-photos/thandeka-mahlangu.jpg" alt="Thandeka Mahlangu, Founder and Director" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position: center 60%;">
             </div>
             <div class="card-body">
               <h3>Thandeka Mahlangu</h3>
               <p class="trail-meta">Founder &amp; Director</p>
+              <button type="button" class="btn btn-outline-dark bio-button"
+                      data-bio="Thandeka started the conservancy in 2022 as a weekend clean-up group. She now leads its strategy and fundraising and works with local landowners and the municipality to keep the escarpment's trails open.">Read bio</button>
             </div>
           </div>
 
-          <div class="card">
+          <div class="card team-card">
             <div class="card-image">
-              <img src="images/team-photos/pieter-van-zyl.jpg" alt="Pieter van Zyl, Volunteer Coordinator" style="width:100%; height:100%; object-fit:cover; object-position: top;">
+              <img src="images/team-photos/pieter-van-zyl.jpg" alt="Pieter van Zyl, Volunteer Coordinator" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position: center 40%;">
             </div>
             <div class="card-body">
               <h3>Pieter van Zyl</h3>
               <p class="trail-meta">Volunteer Coordinator</p>
+              <button type="button" class="btn btn-outline-dark bio-button"
+                      data-bio="Pieter organises the monthly clean-up hikes and welcomes new volunteers. He makes sure every group has the tools, safety briefing and transport it needs.">Read bio</button>
             </div>
           </div>
 
-          <div class="card">
+          <div class="card team-card">
             <div class="card-image">
-              <img src="images/team-photos/carol-lekhoane.jpg" alt="Carol Lekhoane, Trail Maintenance Lead" style="width:100%; height:100%; object-fit:cover; object-position: top;">
+              <img src="images/team-photos/carol-lekhoane.jpg" alt="Carol Lekhoane, Trail Maintenance Lead" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position: center 20%;">
             </div>
             <div class="card-body">
               <h3>Carol Lekhoane</h3>
               <p class="trail-meta">Trail Maintenance Lead</p>
+              <button type="button" class="btn btn-outline-dark bio-button"
+                      data-bio="Carol leads the crews that repair erosion, clear overgrown paths and replace route markers. She also plans the tools and supplies needed for each clean-up hike.">Read bio</button>
             </div>
           </div>
 
-          <div class="card">
+          <div class="card team-card">
             <div class="card-image">
-              <img src="images/team-photos/jabulani-dlamini.jpg" alt="Jabulani Dlamini, Community Outreach" style="width:100%; height:100%; object-fit:cover; object-position: top;">
+              <img src="images/team-photos/jabulani-dlamini.jpg" alt="Jabulani Dlamini, Community Outreach" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position: center 20%;">
             </div>
             <div class="card-body">
               <h3>Jabulani Dlamini</h3>
               <p class="trail-meta">Community Outreach</p>
+              <button type="button" class="btn btn-outline-dark bio-button"
+                      data-bio="Jabulani visits schools and community groups around Lydenburg to teach children and families how to care for the escarpment and how they can get involved.">Read bio</button>
             </div>
           </div>
 
-          <div class="card">
+          <div class="card team-card">
             <div class="card-image">
-              <img src="images/team-photos/nomsa-khumalo.jpg" alt="Nomsa Khumalo, Sponsorship Liaison" style="width:100%; height:100%; object-fit:cover; object-position: top;">
+              <img src="images/team-photos/nomsa-khumalo.jpg" alt="Nomsa Khumalo, Sponsorship Liaison" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position: center 20%;">
             </div>
             <div class="card-body">
               <h3>Nomsa Khumalo</h3>
               <p class="trail-meta">Sponsorship Liaison</p>
+              <button type="button" class="btn btn-outline-dark bio-button"
+                      data-bio="Nomsa builds relationships with local guesthouses, outdoor shops and businesses that sponsor our work, and makes sure sponsors can see the difference their support makes.">Read bio</button>
             </div>
           </div>
 
-          <div class="card">
+          <div class="card team-card">
             <div class="card-image">
-              <img src="images/team-photos/thabo-mokoena.jpg" alt="Thabo Mokoena, Volunteer Photographer" style="width:100%; height:100%; object-fit:cover; object-position: top;">
+              <img src="images/team-photos/thabo-mokoena.jpg" alt="Thabo Mokoena, Volunteer Photographer" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position: center 20%;">
             </div>
             <div class="card-body">
               <h3>Thabo Mokoena</h3>
               <p class="trail-meta">Volunteer Photographer</p>
+              <button type="button" class="btn btn-outline-dark bio-button"
+                      data-bio="Thabo documents trail conditions before and after each clean-up and takes the photographs used across our website and social media.">Read bio</button>
             </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PHOTO GALLERY ====================
+         Each thumbnail is a normal link to the full photo. interactive.js turns
+         the links into a lightbox. To add a photo, copy one gallery-item block
+         and change the file name, the alt text and the caption. -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Our trails in pictures</h2>
+        <p class="section-intro">
+          A look at the landscapes we protect. Click a photo to view it larger.
+        </p>
+
+        <div class="gallery">
+
+          <a class="gallery-item" href="images/trail-thumbnails/dullstroom-wetland.jpg"
+             data-alt="Boardwalk through the Dullstroom Wetland Trail"
+             data-caption="The boardwalk across the Dullstroom wetland" aria-haspopup="dialog">
+            <span class="gallery-image">
+              <img src="images/trail-thumbnails/dullstroom-wetland.jpg" alt="Boardwalk through the Dullstroom Wetland Trail" width="400" height="300" loading="lazy">
+            </span>
+            <span class="gallery-caption">The boardwalk across the Dullstroom wetland</span>
+          </a>
+
+          <a class="gallery-item" href="images/trail-thumbnails/long-tom-pass-loop.jpg"
+             data-alt="Hikers on the Long Tom Pass Loop trail"
+             data-caption="A stream along the Long Tom Pass Loop" aria-haspopup="dialog">
+            <span class="gallery-image">
+              <img src="images/trail-thumbnails/long-tom-pass-loop.jpg" alt="Hikers on the Long Tom Pass Loop trail" width="400" height="300" loading="lazy">
+            </span>
+            <span class="gallery-caption">A stream along the Long Tom Pass Loop</span>
+          </a>
+
+          <a class="gallery-item" href="images/trail-thumbnails/mac-false-ridge.jpg"
+             data-alt="View along the Mac Mac Falls Ridge trail"
+             data-caption="Escarpment views from the Mac Mac Falls Ridge" aria-haspopup="dialog">
+            <span class="gallery-image">
+              <img src="images/trail-thumbnails/mac-false-ridge.jpg" alt="View along the Mac Mac Falls Ridge trail" width="400" height="300" loading="lazy">
+            </span>
+            <span class="gallery-caption">Escarpment views from the Mac Mac Falls Ridge</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FAQ ACCORDION ====================
+         Each button's aria-controls matches the id of its answer panel.
+         jQuery in interactive.js slides the answers open and closed. -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Frequently asked questions</h2>
+        <p class="section-intro">Quick answers to the questions we hear most often.</p>
+
+        <div class="accordion">
+
+          <h3 class="accordion-item">
+            <button type="button" class="accordion-trigger" id="faq-button-1" aria-expanded="false" aria-controls="faq-panel-1">
+              How do I join a clean-up hike?
+            </button>
+          </h3>
+          <div class="accordion-panel" id="faq-panel-1" role="region" aria-labelledby="faq-button-1">
+            <p>Register on our <a href="enquiry.html">volunteer form</a>. Clean-up hikes take place on the first Saturday of every month at 07:30, starting from the Lydenburg Trailhead Office.</p>
+          </div>
+
+          <h3 class="accordion-item">
+            <button type="button" class="accordion-trigger" id="faq-button-2" aria-expanded="false" aria-controls="faq-panel-2">
+              Does it cost anything to volunteer?
+            </button>
+          </h3>
+          <div class="accordion-panel" id="faq-panel-2" role="region" aria-labelledby="faq-button-2">
+            <p>No, volunteering is free. Please bring water, sun protection and sturdy shoes. We provide gloves, bags and tools.</p>
+          </div>
+
+          <h3 class="accordion-item">
+            <button type="button" class="accordion-trigger" id="faq-button-3" aria-expanded="false" aria-controls="faq-panel-3">
+              How much does it cost to sponsor a trail?
+            </button>
+          </h3>
+          <div class="accordion-panel" id="faq-panel-3" role="region" aria-labelledby="faq-button-3">
+            <p>Our sponsorship packages start at R1,500 for a Trail Marker Sponsor and go up to R15,000 for a Trail Champion. See the <a href="enquiry.html">sponsorship form</a> for what each package covers.</p>
+          </div>
+
+          <h3 class="accordion-item">
+            <button type="button" class="accordion-trigger" id="faq-button-4" aria-expanded="false" aria-controls="faq-panel-4">
+              Which trails are suitable for beginners and children?
+            </button>
+          </h3>
+          <div class="accordion-panel" id="faq-panel-4" role="region" aria-labelledby="faq-button-4">
+            <p>The Dullstroom Wetland Trail is a flat, family-friendly boardwalk and is our easiest route. Use the difficulty filter on our <a href="trails.html">trails page</a> to find a route that suits your group. The Mac Mac Falls Ridge is for experienced hikers only.</p>
+          </div>
+
+          <h3 class="accordion-item">
+            <button type="button" class="accordion-trigger" id="faq-button-5" aria-expanded="false" aria-controls="faq-panel-5">
+              How do I report a damaged or blocked trail?
+            </button>
+          </h3>
+          <div class="accordion-panel" id="faq-panel-5" role="region" aria-labelledby="faq-button-5">
+            <p>Send us a message on the <a href="contact.html">contact page</a> and choose "Report a trail problem". Tell us which trail it is and roughly where the problem is.</p>
           </div>
 
         </div>
@@ -150,6 +341,34 @@
     </section>
 
   </main>
+
+  <!-- ==================== BIO MODAL ====================
+       Hidden until a "Read bio" button is clicked. interactive.js fills it in. -->
+  <dialog id="bio-modal" aria-labelledby="bio-modal-name">
+    <div class="dialog-content">
+      <button type="button" class="dialog-close" data-close aria-label="Close team member bio">&times;</button>
+      <img class="modal-photo" alt="" hidden>
+      <h2 class="modal-name" id="bio-modal-name">Team member</h2>
+      <p class="modal-role"></p>
+      <p class="modal-bio"></p>
+      <button type="button" class="btn btn-outline-dark" data-close>Close</button>
+    </div>
+  </dialog>
+
+  <!-- ==================== LIGHTBOX ====================
+       Hidden until a gallery photo is clicked. interactive.js fills it in. -->
+  <dialog id="lightbox" class="lightbox" aria-label="Photo viewer">
+    <div class="dialog-content">
+      <button type="button" class="dialog-close" data-close aria-label="Close photo viewer">&times;</button>
+      <img class="lightbox-image" alt="">
+      <p class="lightbox-caption"></p>
+      <div class="lightbox-controls">
+        <button type="button" class="btn btn-outline-dark lightbox-prev">&larr; Previous</button>
+        <span class="lightbox-count" aria-live="polite"></span>
+        <button type="button" class="btn btn-outline-dark lightbox-next">Next &rarr;</button>
+      </div>
+    </div>
+  </dialog>
 
   <footer class="site-footer">
     <div class="container">
@@ -177,6 +396,13 @@
     </div>
   </footer>
 
+  <!-- jQuery is loaded from its official CDN for the FAQ accordion. The
+       integrity attribute makes the browser check that the file has not been
+       changed, which is a security measure. The order matters: jQuery first,
+       then script.js, then interactive.js. -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+          integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+          crossorigin="anonymous"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
