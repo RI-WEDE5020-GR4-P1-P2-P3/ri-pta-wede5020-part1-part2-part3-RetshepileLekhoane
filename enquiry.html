@@ -1,14 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enquiry | Longtom Trails Conservancy</title>
-  <meta name="description" content="Register as a volunteer or enquire about sponsoring Longtom Trails Conservancy's trail conservation work.">
+  <title>Volunteer or Sponsor a Trail | Longtom Trails Conservancy</title>
+  <meta name="description" content="Join a monthly trail clean-up hike near Lydenburg or sponsor trail conservation on the Mpumalanga escarpment. Register online in minutes.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#4B6043">
+  <link rel="canonical" href="https://longtomtrails.netlify.app/enquiry.html">
+
+  <!-- Icons shown in browser tabs -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-192.png" type="image/png" sizes="192x192">
+
+  <!-- Open Graph and Twitter tags: the title, description and picture shown when the page is shared -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Longtom Trails Conservancy">
+  <meta property="og:locale" content="en_ZA">
+  <meta property="og:title" content="Volunteer or Sponsor a Trail | Longtom Trails Conservancy">
+  <meta property="og:description" content="Join a monthly trail clean-up hike near Lydenburg or sponsor trail conservation on the Mpumalanga escarpment. Register online in minutes.">
+  <meta property="og:url" content="https://longtomtrails.netlify.app/enquiry.html">
+  <meta property="og:image" content="https://longtomtrails.netlify.app/images/og-image.png">
+  <meta property="og:image:alt" content="Longtom Trails Conservancy: protecting the hiking trails of the Mpumalanga escarpment">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
   <header class="site-header">
     <div class="container">
       <a href="index.html" class="logo">
@@ -35,81 +53,156 @@
         <h1 class="section-title">Get involved</h1>
         <p class="section-intro">
           This page serves two audiences: hikers who want to volunteer their time, and
-          businesses or individuals who'd like to sponsor our work. Choose the form that
-          applies to you.
+          businesses or individuals who would like to sponsor our work. Choose the form that
+          applies to you. Fields marked * are required.
         </p>
 
         <div class="form-grid">
 
-          <!-- ==================== VOLUNTEER FORM ==================== -->
-          <form data-validate novalidate>
+          <!-- ==================== VOLUNTEER FORM ====================
+               novalidate: the browser's own pop-up messages are switched off
+               because script.js validates the fields and shows its own.
+               action: where the form data is sent (via AJAX in script.js).
+               data-form / data-response: tell script.js which handler to run
+               and which box to show the response in. -->
+          <form action="https://formspree.io/f/mrppyqer" method="POST" novalidate
+                data-form="volunteer" data-response="volunteer-response">
             <fieldset>
               <legend>Volunteer registration</legend>
 
               <div class="form-field">
-                <label for="vol-name">Full name <span aria-hidden="true">*</span></label>
-                <input type="text" id="vol-name" name="vol-name" required>
-                <p class="form-error">Please enter your name.</p>
+                <label for="vol-name">Full name *</label>
+                <input type="text" id="vol-name" name="name" required minlength="2" maxlength="60"
+                       autocomplete="name" data-label="Full name" aria-describedby="vol-name-error">
+                <p class="form-error" id="vol-name-error"></p>
               </div>
 
               <div class="form-field">
-                <label for="vol-email">Email address <span aria-hidden="true">*</span></label>
-                <input type="email" id="vol-email" name="vol-email" required>
-                <p class="form-error">Please enter a valid email address.</p>
+                <label for="vol-email">Email address *</label>
+                <input type="email" id="vol-email" name="email" required
+                       autocomplete="email" data-label="Email address" aria-describedby="vol-email-error">
+                <p class="form-error" id="vol-email-error"></p>
               </div>
 
               <div class="form-field">
-                <label for="vol-availability">Availability</label>
-                <select id="vol-availability" name="vol-availability">
+                <label for="vol-phone">Cell number *</label>
+                <input type="tel" id="vol-phone" name="phone" required
+                       pattern="(\+27|0)[0-9]{9}" placeholder="0821234567" autocomplete="tel"
+                       data-label="Cell number"
+                       data-pattern-message="Please enter a South African number, for example 0821234567 or +27821234567."
+                       aria-describedby="vol-phone-error">
+                <p class="form-error" id="vol-phone-error"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="vol-date">Preferred date to join *</label>
+                <input type="date" id="vol-date" name="date" required
+                       data-date-range="0,180" data-label="Preferred date"
+                       data-range-message="Please choose a date from today up to six months ahead."
+                       aria-describedby="vol-date-hint vol-date-error">
+                <p class="form-hint" id="vol-date-hint">We will tell you the next clean-up hike on or after this date.</p>
+                <p class="form-error" id="vol-date-error"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="vol-availability">Availability *</label>
+                <select id="vol-availability" name="availability" required
+                        data-label="Availability" aria-describedby="vol-availability-error">
+                  <option value="">Choose your availability</option>
                   <option value="weekends">Weekends only</option>
                   <option value="weekdays">Weekdays only</option>
                   <option value="flexible">Flexible</option>
                 </select>
+                <p class="form-error" id="vol-availability-error"></p>
               </div>
 
               <div class="form-field">
-                <label for="vol-interest">What would you like to help with?</label>
-                <textarea id="vol-interest" name="vol-interest" placeholder="e.g. trail clean-ups, photography, social media"></textarea>
+                <label for="vol-interests">What would you like to help with? *</label>
+                <textarea id="vol-interests" name="interests" required minlength="10" maxlength="300"
+                          placeholder="e.g. trail clean-ups, photography, social media"
+                          data-label="This answer" aria-describedby="vol-interests-error"></textarea>
+                <p class="char-counter"></p>
+                <p class="form-error" id="vol-interests-error"></p>
               </div>
 
               <button type="submit" class="btn btn-primary">Register to volunteer</button>
             </fieldset>
+
+            <div class="form-response" id="volunteer-response" role="status" aria-live="polite" hidden></div>
           </form>
 
           <!-- ==================== SPONSOR FORM ==================== -->
-          <form data-validate novalidate>
+          <form action="https://formspree.io/f/mrppyqer" method="POST" novalidate
+                data-form="sponsor" data-response="sponsor-response">
             <fieldset>
               <legend>Sponsorship enquiry</legend>
 
               <div class="form-field">
-                <label for="spon-org">Organisation name <span aria-hidden="true">*</span></label>
-                <input type="text" id="spon-org" name="spon-org" required>
-                <p class="form-error">Please enter your organisation's name.</p>
+                <label for="spon-organisation">Organisation name *</label>
+                <input type="text" id="spon-organisation" name="organisation" required minlength="2" maxlength="80"
+                       autocomplete="organization" data-label="Organisation name" aria-describedby="spon-organisation-error">
+                <p class="form-error" id="spon-organisation-error"></p>
               </div>
 
               <div class="form-field">
-                <label for="spon-email">Contact email <span aria-hidden="true">*</span></label>
-                <input type="email" id="spon-email" name="spon-email" required>
-                <p class="form-error">Please enter a valid email address.</p>
+                <label for="spon-contact">Contact person *</label>
+                <input type="text" id="spon-contact" name="contact" required minlength="2" maxlength="60"
+                       autocomplete="name" data-label="Contact person" aria-describedby="spon-contact-error">
+                <p class="form-error" id="spon-contact-error"></p>
               </div>
 
               <div class="form-field">
-                <label for="spon-type">Sponsorship type</label>
-                <select id="spon-type" name="spon-type">
-                  <option value="financial">Financial contribution</option>
-                  <option value="in-kind">In-kind (equipment, materials)</option>
-                  <option value="event">Event or trail-day sponsorship</option>
+                <label for="spon-email">Email address *</label>
+                <input type="email" id="spon-email" name="email" required
+                       autocomplete="email" data-label="Email address" aria-describedby="spon-email-error">
+                <p class="form-error" id="spon-email-error"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="spon-phone">Phone number *</label>
+                <input type="tel" id="spon-phone" name="phone" required
+                       pattern="(\+27|0)[0-9]{9}" placeholder="0821234567" autocomplete="tel"
+                       data-label="Phone number"
+                       data-pattern-message="Please enter a South African number, for example 0821234567 or +27821234567."
+                       aria-describedby="spon-phone-error">
+                <p class="form-error" id="spon-phone-error"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="spon-package">Sponsorship package *</label>
+                <select id="spon-package" name="package" required
+                        data-label="Sponsorship package" aria-describedby="spon-package-error">
+                  <option value="">Choose a package</option>
+                  <option value="trail-marker">Trail Marker Sponsor (R1,500)</option>
+                  <option value="trail-care">Trail Care Sponsor (R5,000)</option>
+                  <option value="trail-champion">Trail Champion (R15,000)</option>
                 </select>
+                <p class="form-error" id="spon-package-error"></p>
               </div>
 
               <div class="form-field">
-                <label for="spon-budget">Estimated budget range (ZAR)</label>
-                <input type="text" id="spon-budget" name="spon-budget" placeholder="e.g. R1,000 – R5,000">
-                <p class="form-note">Optional — helps us suggest the right sponsorship package.</p>
+                <label for="spon-payment">Payment option *</label>
+                <select id="spon-payment" name="payment" required
+                        data-label="Payment option" aria-describedby="spon-payment-error">
+                  <option value="">Choose how you would like to pay</option>
+                  <option value="once-off">Once-off payment</option>
+                  <option value="monthly">12 monthly instalments</option>
+                </select>
+                <p class="form-error" id="spon-payment-error"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="spon-message">Anything else we should know?</label>
+                <textarea id="spon-message" name="message" maxlength="300"
+                          data-label="Your message" aria-describedby="spon-message-error"></textarea>
+                <p class="char-counter"></p>
+                <p class="form-error" id="spon-message-error"></p>
               </div>
 
               <button type="submit" class="btn btn-primary">Send sponsorship enquiry</button>
             </fieldset>
+
+            <div class="form-response" id="sponsor-response" role="status" aria-live="polite" hidden></div>
           </form>
 
         </div>
