@@ -8,7 +8,7 @@
 
 ## Links
 - **Live website:** https://longtomtrails.netlify.app
-- **GitHub repository (private):** [PASTE YOUR REPOSITORY LINK]
+- **GitHub repository:** https://github.com/RI-WEDE5020-GR4-P1-P2-P3/ri-pta-wede5020-part1-part2-part3-RetshepileLekhoane.git
 
 ## Contents
 1. [Project overview](#1-project-overview)
